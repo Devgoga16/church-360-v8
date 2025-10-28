@@ -15,16 +15,16 @@ interface StatCardProps {
 export function StatCard({ title, value, icon, trend, className }: StatCardProps) {
   return (
     <div className={cn(
-      "bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-md transition-shadow duration-200",
+      "bg-[#BFE4F9] dark:bg-slate-900 rounded-xl border border-[#BFE4F9] dark:border-slate-800 p-6 shadow-sm hover:shadow-md transition-shadow duration-200",
       className
     )}>
       <div className="flex items-start justify-between">
         <div className="flex-1">
-          <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-2">
+          <p className="text-sm font-medium text-[#173747] dark:text-slate-400 mb-2">
             {title}
           </p>
           <div className="flex items-baseline gap-2">
-            <p className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
+            <p className="text-2xl md:text-3xl font-bold text-[#050A30] dark:text-white">
               {value}
             </p>
             {trend && (
@@ -40,7 +40,7 @@ export function StatCard({ title, value, icon, trend, className }: StatCardProps
           </div>
         </div>
         {icon && (
-          <div className="text-primary opacity-20">
+          <div className="text-[#5E17EB] opacity-30">
             {icon}
           </div>
         )}
