@@ -23,6 +23,13 @@ export function Header({ onToggleSidebar, onToggleCollapse }: HeaderProps) {
             <Menu className="h-5 w-5" />
           </button>
 
+          <button
+            onClick={onToggleCollapse}
+            className="hidden md:inline-flex items-center justify-center w-10 h-10 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#5E17EB] to-[#5E17EB] shadow-lg shadow-[#5E17EB]/30 font-logo">
               <span className="text-white font-bold text-lg">✦</span>
