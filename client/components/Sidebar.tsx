@@ -1,11 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
-import { ChevronRight, LayoutDashboard, FileText, Users, Settings } from "lucide-react";
+import { ChevronRight, ChevronLeft, LayoutDashboard, FileText, Users, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SidebarProps {
   isOpen?: boolean;
   onClose?: () => void;
   isCollapsed?: boolean;
+  onToggleCollapse?: () => void;
 }
 
 interface MenuSection {
