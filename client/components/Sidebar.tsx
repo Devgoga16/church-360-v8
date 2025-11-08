@@ -90,19 +90,18 @@ export function Sidebar({ isOpen = true, onClose, isCollapsed = false }: Sidebar
         </nav>
 
         <div className={cn(
-          "border-t border-slate-200 dark:border-slate-800 space-y-2",
-          isCollapsed ? "px-2 py-6" : "px-3 py-6"
+          "border-t border-slate-200 dark:border-slate-800",
+          isCollapsed ? "px-2 py-6 flex flex-col items-center" : "px-3 py-6"
         )}>
-          <button
-            title={isCollapsed ? "Cerrar Sesión" : undefined}
-            className={cn(
-              "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/20 transition-all duration-200 font-medium group",
-              isCollapsed && "justify-center"
-            )}
-          >
-            <LogOut className="h-5 w-5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-            {!isCollapsed && <span>Cerrar Sesión</span>}
-          </button>
+          <div className={cn(
+            "flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400",
+            isCollapsed && "flex-col gap-1"
+          )}>
+            <span className="inline-block w-2 h-2 rounded-full bg-[#042D62]"></span>
+            <span title={isCollapsed ? "Administrador" : undefined}>
+              {isCollapsed ? "Admin" : "Administrador"}
+            </span>
+          </div>
         </div>
       </aside>
     </>
