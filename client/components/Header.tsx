@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Menu, X, Bell, User, LogOut } from "lucide-react";
+import { Menu, X, Bell, User, LogOut, ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface HeaderProps {
   isSidebarOpen?: boolean;
   onToggleSidebar?: () => void;
+  onToggleCollapse?: () => void;
 }
 
-export function Header({ onToggleSidebar }: HeaderProps) {
+export function Header({ onToggleSidebar, onToggleCollapse }: HeaderProps) {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [notificationCount] = useState(3);
 
