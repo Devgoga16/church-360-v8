@@ -15,24 +15,24 @@ interface StatCardProps {
 export function StatCard({ title, value, icon, trend, className }: StatCardProps) {
   return (
     <div className={cn(
-      "bg-[#BFE4F9] dark:bg-slate-900 rounded-xl border border-[#BFE4F9] dark:border-slate-800 p-6 shadow-sm hover:shadow-md transition-shadow duration-200",
+      "bg-white dark:bg-slate-950 rounded-lg border border-slate-200 dark:border-slate-800 p-4 shadow-sm hover:shadow-md transition-shadow duration-200",
       className
     )}>
-      <div className="flex items-start justify-between">
+      <div className="flex items-start justify-between gap-4">
         <div className="flex-1">
-          <p className="text-sm font-medium text-[#173747] dark:text-slate-400 mb-2">
+          <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wide">
             {title}
           </p>
           <div className="flex items-baseline gap-2">
-            <p className="text-2xl md:text-3xl font-bold text-[#050A30] dark:text-white">
+            <p className="text-2xl font-bold text-[#050A30] dark:text-white">
               {value}
             </p>
             {trend && (
               <span className={cn(
                 "text-xs font-medium",
                 trend.direction === "up"
-                  ? "text-success"
-                  : "text-destructive"
+                  ? "text-[#042D62]"
+                  : "text-slate-500"
               )}>
                 {trend.direction === "up" ? "↑" : "↓"} {trend.value}%
               </span>
@@ -40,7 +40,7 @@ export function StatCard({ title, value, icon, trend, className }: StatCardProps
           </div>
         </div>
         {icon && (
-          <div className="text-[#5E17EB] opacity-30">
+          <div className="text-[#042D62] opacity-40 flex-shrink-0">
             {icon}
           </div>
         )}
