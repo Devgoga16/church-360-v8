@@ -6,7 +6,6 @@ interface SidebarProps {
   isOpen?: boolean;
   onClose?: () => void;
   isCollapsed?: boolean;
-  onToggleCollapse?: () => void;
 }
 
 interface MenuSection {
