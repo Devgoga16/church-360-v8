@@ -27,8 +27,12 @@ export function Header({ onToggleSidebar }: HeaderProps) {
               <span className="text-white font-bold text-lg">✦</span>
             </div>
             <div className="hidden sm:flex flex-col">
-              <h1 className="text-lg font-logo text-[#050A30] dark:text-white leading-tight">Iglesia 360</h1>
-              <span className="text-xs font-subheading text-[#173747] dark:text-slate-400">IACYM - Comas</span>
+              <h1 className="text-lg font-logo text-[#050A30] dark:text-white leading-tight">
+                Iglesia 360
+              </h1>
+              <span className="text-xs font-subheading text-[#173747] dark:text-slate-400">
+                IACYM - Comas
+              </span>
             </div>
           </div>
         </div>
@@ -53,14 +57,20 @@ export function Header({ onToggleSidebar }: HeaderProps) {
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#5E17EB] to-[#5E17EB] flex items-center justify-center">
                 <span className="text-white text-sm font-bold">J</span>
               </div>
-              <span className="text-sm font-medium text-[#050A30] dark:text-white hidden sm:block">Juan G.</span>
+              <span className="text-sm font-medium text-[#050A30] dark:text-white hidden sm:block">
+                Juan G.
+              </span>
             </button>
 
             {showUserMenu && (
               <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-900 rounded-lg shadow-lg border border-slate-200 dark:border-slate-800 overflow-hidden z-50">
                 <div className="px-4 py-3 border-b border-slate-200 dark:border-slate-800">
-                  <p className="text-sm font-medium text-[#050A30] dark:text-white">Juan García</p>
-                  <p className="text-xs text-[#173747] dark:text-slate-500">admin@iglesia360.com</p>
+                  <p className="text-sm font-medium text-[#050A30] dark:text-white">
+                    Juan García
+                  </p>
+                  <p className="text-xs text-[#173747] dark:text-slate-500">
+                    admin@iglesia360.com
+                  </p>
                 </div>
                 <div className="p-2">
                   <button className="w-full flex items-center gap-2 px-3 py-2 text-sm rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-[#050A30] dark:text-white">

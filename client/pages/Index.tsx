@@ -3,7 +3,13 @@ import { Layout } from "@/components/Layout";
 import { StatCard } from "@/components/StatCard";
 import { StatusBadge } from "@/components/StatusBadge";
 import { Solicitud, DashboardStats, SolicitudStatus } from "@shared/api";
-import { TrendingUp, FileText, Users, DollarSign, ArrowRight } from "lucide-react";
+import {
+  TrendingUp,
+  FileText,
+  Users,
+  DollarSign,
+  ArrowRight,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Index() {
@@ -94,7 +100,9 @@ export default function Index() {
 
         {/* Quick Actions Buttons */}
         <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
-          <h3 className="text-sm font-semibold text-[#050A30] dark:text-white uppercase tracking-widest mb-4 pl-0.5">Acciones Rápidas</h3>
+          <h3 className="text-sm font-semibold text-[#050A30] dark:text-white uppercase tracking-widest mb-4 pl-0.5">
+            Acciones Rápidas
+          </h3>
           <div className="flex flex-wrap gap-2">
             <Link
               to="/solicitudes/nueva"
@@ -192,13 +200,18 @@ export default function Index() {
                         <StatusBadge status={solicitud.status} />
                       </td>
                       <td className="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
-                        {new Date(solicitud.createdAt).toLocaleDateString("es-ES")}
+                        {new Date(solicitud.createdAt).toLocaleDateString(
+                          "es-ES",
+                        )}
                       </td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={5} className="px-6 py-12 text-center text-slate-500 dark:text-slate-400">
+                    <td
+                      colSpan={5}
+                      className="px-6 py-12 text-center text-slate-500 dark:text-slate-400"
+                    >
                       No hay solicitudes aún
                     </td>
                   </tr>

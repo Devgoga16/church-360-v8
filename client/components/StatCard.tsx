@@ -12,12 +12,20 @@ interface StatCardProps {
   className?: string;
 }
 
-export function StatCard({ title, value, icon, trend, className }: StatCardProps) {
+export function StatCard({
+  title,
+  value,
+  icon,
+  trend,
+  className,
+}: StatCardProps) {
   return (
-    <div className={cn(
-      "bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 p-4 shadow-sm hover:shadow-md transition-shadow duration-200",
-      className
-    )}>
+    <div
+      className={cn(
+        "bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 p-4 shadow-sm hover:shadow-md transition-shadow duration-200",
+        className,
+      )}
+    >
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1">
           <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wide">
@@ -28,21 +36,21 @@ export function StatCard({ title, value, icon, trend, className }: StatCardProps
               {value}
             </p>
             {trend && (
-              <span className={cn(
-                "text-xs font-medium",
-                trend.direction === "up"
-                  ? "text-[#042D62]"
-                  : "text-slate-500"
-              )}>
+              <span
+                className={cn(
+                  "text-xs font-medium",
+                  trend.direction === "up"
+                    ? "text-[#042D62]"
+                    : "text-slate-500",
+                )}
+              >
                 {trend.direction === "up" ? "↑" : "↓"} {trend.value}%
               </span>
             )}
           </div>
         </div>
         {icon && (
-          <div className="text-[#042D62] opacity-40 flex-shrink-0">
-            {icon}
-          </div>
+          <div className="text-[#042D62] opacity-40 flex-shrink-0">{icon}</div>
         )}
       </div>
     </div>
