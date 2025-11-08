@@ -3,7 +3,13 @@ import { Layout } from "@/components/Layout";
 import { StatCard } from "@/components/StatCard";
 import { StatusBadge } from "@/components/StatusBadge";
 import { Solicitud, DashboardStats, SolicitudStatus } from "@shared/api";
-import { TrendingUp, FileText, Users, DollarSign, ArrowRight } from "lucide-react";
+import {
+  TrendingUp,
+  FileText,
+  Users,
+  DollarSign,
+  ArrowRight,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Index() {
@@ -46,88 +52,121 @@ export default function Index() {
 
   return (
     <Layout>
-      <div className="p-6 md:p-8 max-w-7xl mx-auto space-y-8">
+      <div className="p-6 md:p-8 space-y-6">
         {/* Header */}
-        <div className="space-y-2">
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+        <div className="space-y-1">
+          <h1 className="text-3xl font-bold text-[#050A30] dark:text-white">
             Bienvenido a Iglesia 360
           </h1>
-          <p className="text-slate-600 dark:text-slate-400">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Sistema integral de gestión de solicitudes financieras
           </p>
         </div>
 
         {/* Stats Grid */}
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-pulse">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 animate-pulse">
             {[...Array(4)].map((_, i) => (
               <div
                 key={i}
-                className="bg-slate-200 dark:bg-slate-800 rounded-xl h-32"
+                className="bg-slate-200 dark:bg-slate-800 rounded-xl h-24"
               />
             ))}
           </div>
         ) : stats ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCard
               title="Total de Solicitudes"
               value={stats.totalSolicitudes}
-              icon={<FileText className="h-8 w-8" />}
+              icon={<FileText className="h-6 w-6" />}
             />
             <StatCard
               title="Pendientes de Aprobación"
               value={stats.pendingSolicitudes}
-              icon={<TrendingUp className="h-8 w-8" />}
-              className="border-l-4 border-l-warning"
+              icon={<TrendingUp className="h-6 w-6" />}
             />
             <StatCard
               title="Aprobadas"
               value={stats.approvedSolicitudes}
-              icon={<FileText className="h-8 w-8" />}
-              className="border-l-4 border-l-success"
+              icon={<FileText className="h-6 w-6" />}
             />
             <StatCard
               title="Monto Total Solicitado"
               value={formatCurrency(stats.totalAmount)}
-              icon={<DollarSign className="h-8 w-8" />}
+              icon={<DollarSign className="h-6 w-6" />}
             />
           </div>
         ) : null}
 
+        {/* Quick Actions Buttons */}
+        <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
+          <h3 className="text-sm font-semibold text-[#050A30] dark:text-white uppercase tracking-widest mb-4 pl-0.5">
+            Acciones Rápidas
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            <Link
+              to="/solicitudes/nueva"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#042D62] text-white rounded-lg hover:bg-[#042D62]/90 transition-all duration-200 text-sm font-medium shadow-sm hover:shadow-md"
+            >
+              <FileText className="h-4 w-4" />
+              Nueva Solicitud
+            </Link>
+            <Link
+              to="/solicitudes"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 text-sm font-medium"
+            >
+              Ver todas
+            </Link>
+            <Link
+              to="/solicitudes?status=pendiente"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 text-sm font-medium"
+            >
+              Pendientes
+            </Link>
+            <Link
+              to="/solicitudes?status=aprobado"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 text-sm font-medium"
+            >
+              Aprobadas
+            </Link>
+          </div>
+        </div>
+
         {/* Recent Solicitudes Section */}
-        <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
-          <div className="p-6 border-b border-slate-200 dark:border-slate-800">
+        <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+          <div className="p-6">
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+              <h2 className="text-lg font-bold text-[#050A30] dark:text-white">
                 Solicitudes Recientes
               </h2>
               <Link
                 to="/solicitudes"
-                className="flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm transition-colors"
+                className="flex items-center gap-2 text-[#042D62] hover:text-[#042D62]/80 font-medium text-sm transition-colors"
               >
                 Ver todas
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
+          <div className="border-t border-slate-200 dark:border-slate-800"></div>
 
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
-                <tr>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-700 dark:text-slate-300">
+              <thead>
+                <tr className="border-b border-slate-200 dark:border-slate-800">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                     Código
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                     Título
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                     Monto
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                     Estado
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                     Fecha
                   </th>
                 </tr>
@@ -137,12 +176,12 @@ export default function Index() {
                   recentSolicitudes.map((solicitud) => (
                     <tr
                       key={solicitud.id}
-                      className="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                      className="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors duration-150"
                     >
                       <td className="px-6 py-4">
                         <Link
                           to={`/solicitudes/${solicitud.id}`}
-                          className="font-semibold text-primary hover:text-primary/80 transition-colors"
+                          className="font-semibold text-[#042D62] hover:text-[#042D62]/80 transition-colors text-sm"
                         >
                           {solicitud.code}
                         </Link>
@@ -153,21 +192,26 @@ export default function Index() {
                         </span>
                       </td>
                       <td className="px-6 py-4">
-                        <span className="font-medium text-slate-900 dark:text-white">
+                        <span className="font-semibold text-slate-900 dark:text-white text-sm">
                           {formatCurrency(solicitud.totalAmount)}
                         </span>
                       </td>
                       <td className="px-6 py-4">
                         <StatusBadge status={solicitud.status} />
                       </td>
-                      <td className="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">
-                        {new Date(solicitud.createdAt).toLocaleDateString("es-ES")}
+                      <td className="px-6 py-4 text-sm text-slate-500 dark:text-slate-400">
+                        {new Date(solicitud.createdAt).toLocaleDateString(
+                          "es-ES",
+                        )}
                       </td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={5} className="px-6 py-8 text-center text-slate-500">
+                    <td
+                      colSpan={5}
+                      className="px-6 py-12 text-center text-slate-500 dark:text-slate-400"
+                    >
                       No hay solicitudes aún
                     </td>
                   </tr>
@@ -175,39 +219,6 @@ export default function Index() {
               </tbody>
             </table>
           </div>
-        </div>
-
-        {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link
-            to="/solicitudes/nueva"
-            className="group bg-gradient-to-br from-primary to-primary/80 text-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
-          >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold">Nueva Solicitud</h3>
-              <div className="bg-white/20 p-3 rounded-lg group-hover:bg-white/30 transition-colors">
-                <FileText className="h-6 w-6" />
-              </div>
-            </div>
-            <p className="text-white/90 text-sm">
-              Crear una nueva solicitud financiera para tu ministerio
-            </p>
-          </Link>
-
-          <Link
-            to="/solicitudes?status=pendiente"
-            className="group bg-gradient-to-br from-warning to-warning/80 text-slate-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
-          >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xl font-bold">Pendientes de Aprobación</h3>
-              <div className="bg-slate-900/20 p-3 rounded-lg group-hover:bg-slate-900/30 transition-colors">
-                <TrendingUp className="h-6 w-6" />
-              </div>
-            </div>
-            <p className="text-slate-900/90 text-sm">
-              Revisar solicitudes que necesitan tu aprobación
-            </p>
-          </Link>
         </div>
       </div>
     </Layout>

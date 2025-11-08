@@ -14,9 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["League Gothic", "sans-serif"],
-        body: ["Inter", "sans-serif"],
-        subheading: ["Poppins", "sans-serif"],
+        logo: ["Montserrat", "sans-serif"],
+        heading: ["Montserrat", "sans-serif"],
+        body: ["Montserrat", "sans-serif"],
+        subheading: ["Montserrat", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

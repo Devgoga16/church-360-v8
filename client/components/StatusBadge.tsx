@@ -6,7 +6,10 @@ interface StatusBadgeProps {
   className?: string;
 }
 
-const statusConfig: Record<SolicitudStatus, { label: string; className: string }> = {
+const statusConfig: Record<
+  SolicitudStatus,
+  { label: string; className: string }
+> = {
   borrador: {
     label: "Borrador",
     className: "badge-draft",
@@ -17,11 +20,13 @@ const statusConfig: Record<SolicitudStatus, { label: string; className: string }
   },
   en_revision: {
     label: "En Revisión",
-    className: "badge-pending",
+    className:
+      "inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wide bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
   },
   aprobado_parcial: {
     label: "Aprobado Parcial",
-    className: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
+    className:
+      "inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wide bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300",
   },
   aprobado: {
     label: "Aprobado",
@@ -37,7 +42,8 @@ const statusConfig: Record<SolicitudStatus, { label: string; className: string }
   },
   cancelado: {
     label: "Cancelado",
-    className: "bg-slate-100 text-slate-800 dark:bg-slate-900 dark:text-slate-300",
+    className:
+      "inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wide bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
   },
 };
 
@@ -45,8 +51,6 @@ export function StatusBadge({ status, className }: StatusBadgeProps) {
   const config = statusConfig[status];
 
   return (
-    <span className={cn(config.className, className)}>
-      {config.label}
-    </span>
+    <span className={cn(config.className, className)}>{config.label}</span>
   );
 }
