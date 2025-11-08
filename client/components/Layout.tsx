@@ -18,12 +18,12 @@ export function Layout({ children }: LayoutProps) {
       <div className="flex flex-1 overflow-hidden relative">
         <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} isCollapsed={sidebarCollapsed} />
 
-        {/* Floating collapse/expand button */}
+        {/* Floating collapse/expand button on sidebar edge */}
         <button
           onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
           className={cn(
-            "hidden md:inline-flex fixed top-24 items-center justify-center w-10 h-10 rounded-lg bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all duration-300 ease-in-out text-slate-600 dark:text-slate-300 shadow-md border border-slate-200 dark:border-slate-700 z-30",
-            sidebarCollapsed ? "left-24" : "left-72"
+            "hidden md:inline-flex fixed top-20 items-center justify-center w-9 h-9 rounded-full bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all duration-300 ease-in-out text-slate-600 dark:text-slate-300 shadow-lg border border-slate-200 dark:border-slate-700 z-50",
+            sidebarCollapsed ? "left-[66px]" : "left-[260px]"
           )}
           title={sidebarCollapsed ? "Expandir" : "Contraer"}
         >
