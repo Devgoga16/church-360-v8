@@ -209,39 +209,6 @@ export default function Index() {
             </table>
           </div>
         </div>
-
-        {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Link
-            to="/solicitudes/nueva"
-            className="group bg-[#042D62] text-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all duration-300 hover:bg-[#042D62]/90"
-          >
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-lg font-bold">Nueva Solicitud</h3>
-              <div className="bg-white/15 p-2 rounded-xl group-hover:bg-white/20 transition-colors">
-                <FileText className="h-5 w-5" />
-              </div>
-            </div>
-            <p className="text-white/80 text-sm">
-              Crear una nueva solicitud financiera
-            </p>
-          </Link>
-
-          <Link
-            to="/solicitudes?status=pendiente"
-            className="group bg-white dark:bg-slate-900 border border-[#042D62]/20 text-[#042D62] dark:text-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#042D62]"
-          >
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-lg font-bold">Pendientes de Aprobación</h3>
-              <div className="bg-[#042D62]/10 p-2 rounded-xl group-hover:bg-[#042D62]/15 transition-colors">
-                <TrendingUp className="h-5 w-5" />
-              </div>
-            </div>
-            <p className="text-[#042D62]/70 dark:text-white/70 text-sm">
-              Revisar solicitudes que necesitan aprobación
-            </p>
-          </Link>
-        </div>
       </div>
     </Layout>
   );
