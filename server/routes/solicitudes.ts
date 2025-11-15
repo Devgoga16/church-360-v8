@@ -9,6 +9,8 @@ import {
   ApiResponse,
   PaginatedResponse,
   AuditLog,
+  WorkflowStep,
+  ProofOfPaymentStatus,
 } from "@shared/api";
 
 // Mock data for solicitudes
