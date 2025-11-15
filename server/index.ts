@@ -9,10 +9,7 @@ import {
   updateUser,
   deleteUser,
 } from "./routes/users";
-import {
-  listMinistries,
-  getMinistry,
-} from "./routes/ministries";
+import { listMinistries, getMinistry } from "./routes/ministries";
 import {
   listSolicitudes,
   getSolicitud,

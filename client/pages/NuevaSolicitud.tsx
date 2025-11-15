@@ -11,14 +11,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Ministry, User, PaymentType, CreateSolicitudRequest, SolicitudItem } from "@shared/api";
+import {
+  Ministry,
+  User,
+  PaymentType,
+  CreateSolicitudRequest,
+  SolicitudItem,
+} from "@shared/api";
 import { Plus, Trash2, DollarSign } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export default function NuevaSolicitud() {
   const navigate = useNavigate();
   const { toast } = useToast();
-  
+
   const [ministries, setMinistries] = useState<Ministry[]>([]);
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -31,7 +37,9 @@ export default function NuevaSolicitud() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [currency, setCurrency] = useState("PEN");
-  const [paymentType, setPaymentType] = useState<PaymentType | "">(PaymentType.TERCEROS);
+  const [paymentType, setPaymentType] = useState<PaymentType | "">(
+    PaymentType.TERCEROS,
+  );
   const [paymentDetail, setPaymentDetail] = useState("");
   const [selectedAccountId, setSelectedAccountId] = useState<string>("");
   const [accountData, setAccountData] = useState({
@@ -48,7 +56,7 @@ export default function NuevaSolicitud() {
     document: "",
     cci: "",
   });
-  const [items, setItems] = useState<Omit<SolicitudItem, 'id'>[]>([
+  const [items, setItems] = useState<Omit<SolicitudItem, "id">[]>([
     { itemNumber: 1, description: "", amount: 0, quantity: 1, unitPrice: 0 },
   ]);
 
@@ -130,7 +138,13 @@ export default function NuevaSolicitud() {
     const newItemNumber = items.length + 1;
     setItems([
       ...items,
-      { itemNumber: newItemNumber, description: "", amount: 0, quantity: 1, unitPrice: 0 },
+      {
+        itemNumber: newItemNumber,
+        description: "",
+        amount: 0,
+        quantity: 1,
+        unitPrice: 0,
+      },
     ]);
   };
 
@@ -150,14 +164,19 @@ export default function NuevaSolicitud() {
   const handleItemChange = (
     index: number,
     field: keyof SolicitudItem,
-    value: any
+    value: any,
   ) => {
     const newItems = [...items];
     newItems[index] = { ...newItems[index], [field]: value };
 
     // Auto-calculate amount if quantity or unitPrice changes
-    if ((field === "quantity" || field === "unitPrice") && newItems[index].unitPrice && newItems[index].quantity) {
-      newItems[index].amount = (newItems[index].quantity || 1) * (newItems[index].unitPrice || 0);
+    if (
+      (field === "quantity" || field === "unitPrice") &&
+      newItems[index].unitPrice &&
+      newItems[index].quantity
+    ) {
+      newItems[index].amount =
+        (newItems[index].quantity || 1) * (newItems[index].unitPrice || 0);
     }
 
     setItems(newItems);
@@ -226,9 +245,13 @@ export default function NuevaSolicitud() {
     }
 
     if (paymentType === PaymentType.TERCEROS) {
-      if (!thirdPartyData.bankName.trim() || !thirdPartyData.accountNumber.trim() ||
-          !thirdPartyData.documentType.trim() || !thirdPartyData.document.trim() ||
-          !thirdPartyData.cci.trim()) {
+      if (
+        !thirdPartyData.bankName.trim() ||
+        !thirdPartyData.accountNumber.trim() ||
+        !thirdPartyData.documentType.trim() ||
+        !thirdPartyData.document.trim() ||
+        !thirdPartyData.cci.trim()
+      ) {
         toast({
           title: "Error",
           description: "Debe completar todos los campos del abono a terceros",
@@ -238,10 +261,11 @@ export default function NuevaSolicitud() {
       }
     }
 
-    if (items.some(item => !item.description.trim() || item.amount <= 0)) {
+    if (items.some((item) => !item.description.trim() || item.amount <= 0)) {
       toast({
         title: "Error",
-        description: "Todos los items deben tener descripción y monto mayor a 0",
+        description:
+          "Todos los items deben tener descripción y monto mayor a 0",
         variant: "destructive",
       });
       return;
@@ -265,13 +289,15 @@ export default function NuevaSolicitud() {
         paymentType: paymentType as PaymentType,
         paymentDetail: finalPaymentDetail || undefined,
         currency,
-        items: items.map(({ itemNumber, description, amount, quantity, unitPrice }) => ({
-          itemNumber,
-          description,
-          amount,
-          quantity,
-          unitPrice,
-        })),
+        items: items.map(
+          ({ itemNumber, description, amount, quantity, unitPrice }) => ({
+            itemNumber,
+            description,
+            amount,
+            quantity,
+            unitPrice,
+          }),
+        ),
       };
 
       const response = await fetch("/api/solicitudes", {
@@ -296,7 +322,10 @@ export default function NuevaSolicitud() {
       console.error("Error creating solicitud:", error);
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "Error al crear la solicitud",
+        description:
+          error instanceof Error
+            ? error.message
+            : "Error al crear la solicitud",
         variant: "destructive",
       });
     } finally {
@@ -317,7 +346,10 @@ export default function NuevaSolicitud() {
         <div className="p-6 md:p-8">
           <div className="animate-pulse space-y-4">
             {[...Array(5)].map((_, i) => (
-              <div key={i} className="bg-slate-200 dark:bg-slate-800 h-12 rounded-lg" />
+              <div
+                key={i}
+                className="bg-slate-200 dark:bg-slate-800 h-12 rounded-lg"
+              />
             ))}
           </div>
         </div>
@@ -464,13 +496,15 @@ export default function NuevaSolicitud() {
                     <th className="text-left py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-28">
                       Monto
                     </th>
-                    <th className="text-center py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-10">
-                    </th>
+                    <th className="text-center py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-10"></th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
                   {items.map((item, index) => (
-                    <tr key={index} className="hover:bg-slate-50/50 dark:hover:bg-slate-900/30">
+                    <tr
+                      key={index}
+                      className="hover:bg-slate-50/50 dark:hover:bg-slate-900/30"
+                    >
                       <td className="py-3 px-2">
                         <span className="text-slate-700 dark:text-slate-300">
                           {item.itemNumber}
@@ -482,7 +516,11 @@ export default function NuevaSolicitud() {
                           placeholder="Descripción del item"
                           value={item.description}
                           onChange={(e) =>
-                            handleItemChange(index, "description", e.target.value)
+                            handleItemChange(
+                              index,
+                              "description",
+                              e.target.value,
+                            )
                           }
                           className="w-full text-sm"
                         />
@@ -493,7 +531,11 @@ export default function NuevaSolicitud() {
                           placeholder="Monto"
                           value={item.amount}
                           onChange={(e) =>
-                            handleItemChange(index, "amount", parseFloat(e.target.value) || 0)
+                            handleItemChange(
+                              index,
+                              "amount",
+                              parseFloat(e.target.value) || 0,
+                            )
                           }
                           className="w-full text-sm bg-slate-100 dark:bg-slate-900"
                         />
@@ -545,8 +587,20 @@ export default function NuevaSolicitud() {
                       setPaymentType(PaymentType.UNO_MISMO);
                       setPaymentDetail("");
                       setSelectedAccountId("");
-                      setAccountData({ bankName: "", accountNumber: "", documentType: "", document: "", cci: "" });
-                      setThirdPartyData({ bankName: "", accountNumber: "", documentType: "", document: "", cci: "" });
+                      setAccountData({
+                        bankName: "",
+                        accountNumber: "",
+                        documentType: "",
+                        document: "",
+                        cci: "",
+                      });
+                      setThirdPartyData({
+                        bankName: "",
+                        accountNumber: "",
+                        documentType: "",
+                        document: "",
+                        cci: "",
+                      });
                     }}
                     className={`py-3 px-4 rounded-lg border-2 font-medium transition-all text-sm ${
                       paymentType === PaymentType.UNO_MISMO
@@ -555,8 +609,7 @@ export default function NuevaSolicitud() {
                     }`}
                   >
                     <div className="flex items-center justify-center gap-2">
-                      <DollarSign className="h-4 w-4" />
-                      A Cuenta Propia
+                      <DollarSign className="h-4 w-4" />A Cuenta Propia
                     </div>
                   </button>
                   <button
@@ -564,8 +617,20 @@ export default function NuevaSolicitud() {
                     onClick={() => {
                       setPaymentType(PaymentType.TERCEROS);
                       setSelectedAccountId("");
-                      setAccountData({ bankName: "", accountNumber: "", documentType: "", document: "", cci: "" });
-                      setThirdPartyData({ bankName: "", accountNumber: "", documentType: "", document: "", cci: "" });
+                      setAccountData({
+                        bankName: "",
+                        accountNumber: "",
+                        documentType: "",
+                        document: "",
+                        cci: "",
+                      });
+                      setThirdPartyData({
+                        bankName: "",
+                        accountNumber: "",
+                        documentType: "",
+                        document: "",
+                        cci: "",
+                      });
                     }}
                     className={`py-3 px-4 rounded-lg border-2 font-medium transition-all text-sm ${
                       paymentType === PaymentType.TERCEROS
@@ -574,8 +639,7 @@ export default function NuevaSolicitud() {
                     }`}
                   >
                     <div className="flex items-center justify-center gap-2">
-                      <DollarSign className="h-4 w-4" />
-                      A Terceros
+                      <DollarSign className="h-4 w-4" />A Terceros
                     </div>
                   </button>
                 </div>
@@ -588,7 +652,10 @@ export default function NuevaSolicitud() {
                     <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                       Seleccionar Cuenta *
                     </label>
-                    <Select value={selectedAccountId} onValueChange={handleSelectAccount}>
+                    <Select
+                      value={selectedAccountId}
+                      onValueChange={handleSelectAccount}
+                    >
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="Seleccionar una cuenta" />
                       </SelectTrigger>
@@ -679,7 +746,12 @@ export default function NuevaSolicitud() {
                         type="text"
                         placeholder="Ej: Banco de Crédito del Perú"
                         value={thirdPartyData.bankName}
-                        onChange={(e) => setThirdPartyData({ ...thirdPartyData, bankName: e.target.value })}
+                        onChange={(e) =>
+                          setThirdPartyData({
+                            ...thirdPartyData,
+                            bankName: e.target.value,
+                          })
+                        }
                         className="w-full"
                       />
                     </div>
@@ -691,7 +763,12 @@ export default function NuevaSolicitud() {
                         type="text"
                         placeholder="Ej: 191-0000012-1-99"
                         value={thirdPartyData.accountNumber}
-                        onChange={(e) => setThirdPartyData({ ...thirdPartyData, accountNumber: e.target.value })}
+                        onChange={(e) =>
+                          setThirdPartyData({
+                            ...thirdPartyData,
+                            accountNumber: e.target.value,
+                          })
+                        }
                         className="w-full"
                       />
                     </div>
@@ -703,7 +780,12 @@ export default function NuevaSolicitud() {
                         type="text"
                         placeholder="Ej: DNI, RUC"
                         value={thirdPartyData.documentType}
-                        onChange={(e) => setThirdPartyData({ ...thirdPartyData, documentType: e.target.value })}
+                        onChange={(e) =>
+                          setThirdPartyData({
+                            ...thirdPartyData,
+                            documentType: e.target.value,
+                          })
+                        }
                         className="w-full"
                       />
                     </div>
@@ -715,7 +797,12 @@ export default function NuevaSolicitud() {
                         type="text"
                         placeholder="Ej: 12345678"
                         value={thirdPartyData.document}
-                        onChange={(e) => setThirdPartyData({ ...thirdPartyData, document: e.target.value })}
+                        onChange={(e) =>
+                          setThirdPartyData({
+                            ...thirdPartyData,
+                            document: e.target.value,
+                          })
+                        }
                         className="w-full"
                       />
                     </div>
@@ -727,7 +814,12 @@ export default function NuevaSolicitud() {
                         type="text"
                         placeholder="Ej: 002191900000121990"
                         value={thirdPartyData.cci}
-                        onChange={(e) => setThirdPartyData({ ...thirdPartyData, cci: e.target.value })}
+                        onChange={(e) =>
+                          setThirdPartyData({
+                            ...thirdPartyData,
+                            cci: e.target.value,
+                          })
+                        }
                         className="w-full"
                       />
                     </div>
