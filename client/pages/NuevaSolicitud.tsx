@@ -41,6 +41,13 @@ export default function NuevaSolicitud() {
     document: "",
     cci: "",
   });
+  const [thirdPartyData, setThirdPartyData] = useState({
+    bankName: "",
+    accountNumber: "",
+    documentType: "",
+    document: "",
+    cci: "",
+  });
   const [items, setItems] = useState<Omit<SolicitudItem, 'id'>[]>([
     { itemNumber: 1, description: "", amount: 0, quantity: 1, unitPrice: 0 },
   ]);
