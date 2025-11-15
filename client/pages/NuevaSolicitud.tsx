@@ -560,6 +560,7 @@ export default function NuevaSolicitud() {
                       setPaymentType(PaymentType.TERCEROS);
                       setSelectedAccountId("");
                       setAccountData({ bankName: "", accountNumber: "", documentType: "", document: "", cci: "" });
+                      setThirdPartyData({ bankName: "", accountNumber: "", documentType: "", document: "", cci: "" });
                     }}
                     className={`py-3 px-4 rounded-lg border-2 font-medium transition-all text-sm ${
                       paymentType === PaymentType.TERCEROS
