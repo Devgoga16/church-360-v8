@@ -237,7 +237,7 @@ export default function NuevaSolicitud() {
   if (loading) {
     return (
       <Layout>
-        <div className="p-6 md:p-8 max-w-4xl mx-auto">
+        <div className="p-6 md:p-8">
           <div className="animate-pulse space-y-4">
             {[...Array(5)].map((_, i) => (
               <div key={i} className="bg-slate-200 dark:bg-slate-800 h-12 rounded-lg" />
@@ -250,7 +250,7 @@ export default function NuevaSolicitud() {
 
   return (
     <Layout>
-      <div className="p-6 md:p-8 max-w-4xl mx-auto">
+      <div className="p-6 md:p-8">
         <div className="space-y-2 mb-8">
           <h1 className="text-3xl font-bold text-[#050A30] dark:text-white">
             Nueva Solicitud Financiera
