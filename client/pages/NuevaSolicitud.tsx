@@ -737,8 +737,8 @@ export default function NuevaSolicitud() {
             </div>
           </div>
 
-          {/* Submit Button */}
-          <div className="flex gap-3 justify-end">
+          {/* Submit Button - Sticky */}
+          <div className="sticky bottom-0 left-0 right-0 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 p-6 flex gap-3 justify-end shadow-lg">
             <Button
               type="button"
               variant="outline"
