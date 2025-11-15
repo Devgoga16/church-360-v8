@@ -661,16 +661,72 @@ export default function NuevaSolicitud() {
 
               {/* Payment Detail for Terceros */}
               {paymentType === PaymentType.TERCEROS && (
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                    Detalles del Abono a Terceros *
-                  </label>
-                  <Textarea
-                    placeholder="Especifica a quién se debe pagar (ej: Proveedor XYZ, banco: ..., cuenta: ...)"
-                    value={paymentDetail}
-                    onChange={(e) => setPaymentDetail(e.target.value)}
-                    className="w-full min-h-[100px]"
-                  />
+                <div className="space-y-4">
+                  <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                    Información de Abono a Terceros *
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 bg-slate-50 dark:bg-slate-900/30 rounded-lg border border-slate-200 dark:border-slate-800">
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        Banco Beneficiario *
+                      </label>
+                      <Input
+                        type="text"
+                        placeholder="Ej: Banco de Crédito del Perú"
+                        value={thirdPartyData.bankName}
+                        onChange={(e) => setThirdPartyData({ ...thirdPartyData, bankName: e.target.value })}
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        Número de Cuenta *
+                      </label>
+                      <Input
+                        type="text"
+                        placeholder="Ej: 191-0000012-1-99"
+                        value={thirdPartyData.accountNumber}
+                        onChange={(e) => setThirdPartyData({ ...thirdPartyData, accountNumber: e.target.value })}
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        Tipo de Documento *
+                      </label>
+                      <Input
+                        type="text"
+                        placeholder="Ej: DNI, RUC"
+                        value={thirdPartyData.documentType}
+                        onChange={(e) => setThirdPartyData({ ...thirdPartyData, documentType: e.target.value })}
+                        className="w-full"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        Documento *
+                      </label>
+                      <Input
+                        type="text"
+                        placeholder="Ej: 12345678"
+                        value={thirdPartyData.document}
+                        onChange={(e) => setThirdPartyData({ ...thirdPartyData, document: e.target.value })}
+                        className="w-full"
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        Código Interbancario (CCI) *
+                      </label>
+                      <Input
+                        type="text"
+                        placeholder="Ej: 002191900000121990"
+                        value={thirdPartyData.cci}
+                        onChange={(e) => setThirdPartyData({ ...thirdPartyData, cci: e.target.value })}
+                        className="w-full"
+                      />
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
