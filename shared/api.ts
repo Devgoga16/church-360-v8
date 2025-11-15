@@ -151,6 +151,15 @@ export interface SolicitudAttachment {
   uploadedAt: string;
 }
 
+export interface WorkflowStepRecord {
+  step: WorkflowStep;
+  completedAt?: string;
+  completedBy?: number;
+  completedByName?: string;
+  proofOfPaymentStatus?: ProofOfPaymentStatus;
+  comment?: string;
+}
+
 export interface Solicitud {
   id: number;
   code: string;
