@@ -33,9 +33,45 @@ export default function NuevaSolicitud() {
   const [currency, setCurrency] = useState("PEN");
   const [paymentType, setPaymentType] = useState<PaymentType | "">(PaymentType.TERCEROS);
   const [paymentDetail, setPaymentDetail] = useState("");
+  const [selectedAccountId, setSelectedAccountId] = useState<string>("");
+  const [accountData, setAccountData] = useState({
+    bankName: "",
+    accountNumber: "",
+    documentType: "",
+    document: "",
+    cci: "",
+  });
   const [items, setItems] = useState<Omit<SolicitudItem, 'id'>[]>([
     { itemNumber: 1, description: "", amount: 0, quantity: 1, unitPrice: 0 },
   ]);
+
+  // Mock bank accounts data (in production, this would come from the database)
+  const mockAccounts = [
+    {
+      id: "1",
+      bankName: "Banco de Crédito del Perú",
+      accountNumber: "191-0000012-1-99",
+      documentType: "DNI",
+      document: "12345678",
+      cci: "002191900000121990",
+    },
+    {
+      id: "2",
+      bankName: "BBVA Perú",
+      accountNumber: "0011-0213-0600112405",
+      documentType: "DNI",
+      document: "87654321",
+      cci: "011021306001124051",
+    },
+    {
+      id: "3",
+      bankName: "Interbank",
+      accountNumber: "2031-0000-0100-1234-5678",
+      documentType: "RUC",
+      document: "20123456789",
+      cci: "003200010001234567",
+    },
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
