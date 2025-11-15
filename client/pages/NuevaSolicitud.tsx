@@ -533,6 +533,8 @@ export default function NuevaSolicitud() {
                     onClick={() => {
                       setPaymentType(PaymentType.UNO_MISMO);
                       setPaymentDetail("");
+                      setSelectedAccountId("");
+                      setAccountData({ bankName: "", accountNumber: "", documentType: "", document: "", cci: "" });
                     }}
                     className={`py-3 px-4 rounded-lg border-2 font-medium transition-all text-sm ${
                       paymentType === PaymentType.UNO_MISMO
