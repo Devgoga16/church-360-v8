@@ -374,7 +374,7 @@ export default function NuevaSolicitud() {
               </Button>
             </div>
 
-            <div className="overflow-x-auto max-h-96 overflow-y-auto">
+            <div className="overflow-x-auto h-96 overflow-y-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-slate-200 dark:border-slate-800">
