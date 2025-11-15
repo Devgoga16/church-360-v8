@@ -239,13 +239,20 @@ export default function NuevaSolicitud() {
     try {
       setSubmitting(true);
 
+      let finalPaymentDetail = "";
+      if (paymentType === PaymentType.TERCEROS) {
+        finalPaymentDetail = paymentDetail;
+      } else if (paymentType === PaymentType.UNO_MISMO) {
+        finalPaymentDetail = `Banco: ${accountData.bankName}\nCuenta: ${accountData.accountNumber}\nCCI: ${accountData.cci}`;
+      }
+
       const payload: CreateSolicitudRequest = {
         ministryId: ministryId as number,
         responsibleUserId: responsibleUserId as number,
         title,
         description,
         paymentType: paymentType as PaymentType,
-        paymentDetail: paymentType === PaymentType.TERCEROS ? paymentDetail : undefined,
+        paymentDetail: finalPaymentDetail || undefined,
         currency,
         items: items.map(({ itemNumber, description, amount, quantity, unitPrice }) => ({
           itemNumber,
