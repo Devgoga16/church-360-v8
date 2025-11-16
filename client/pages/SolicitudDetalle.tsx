@@ -70,8 +70,7 @@ export default function SolicitudDetalle() {
   const getWorkflowStepLabel = (step: WorkflowStep): string => {
     const labels: Record<WorkflowStep, string> = {
       [WorkflowStep.APROBADO_PASTOR_RED]: "Aprobado por Pastor de red",
-      [WorkflowStep.APROBADO_ADMINISTRACION]:
-        "Aprobado por administración",
+      [WorkflowStep.APROBADO_ADMINISTRACION]: "Aprobado por administración",
       [WorkflowStep.APROBADO_PR_TITULAR]: "Aprobado por PR titular",
       [WorkflowStep.ENTREGA_DINERO]: "Entrega de dinero",
       [WorkflowStep.SUBIR_COMPROBANTE]: "Subir comprobante",
@@ -79,7 +78,9 @@ export default function SolicitudDetalle() {
     return labels[step];
   };
 
-  const getProofOfPaymentStatusLabel = (status: ProofOfPaymentStatus): string => {
+  const getProofOfPaymentStatusLabel = (
+    status: ProofOfPaymentStatus,
+  ): string => {
     const labels: Record<ProofOfPaymentStatus, string> = {
       [ProofOfPaymentStatus.SUBIDO]: "Subido",
       [ProofOfPaymentStatus.PENDIENTE_VALIDAR]: "Comprobante por validar",
@@ -181,16 +182,22 @@ export default function SolicitudDetalle() {
                       Solicitud creada
                     </h3>
                     <span className="text-xs text-slate-500 dark:text-slate-400 mt-2 block">
-                      {new Date(solicitud.createdAt).toLocaleDateString("es-ES", {
-                        month: "short",
-                        day: "numeric",
-                      })}
+                      {new Date(solicitud.createdAt).toLocaleDateString(
+                        "es-ES",
+                        {
+                          month: "short",
+                          day: "numeric",
+                        },
+                      )}
                     </span>
                   </div>
                 </div>
 
                 {solicitud.workflowSteps.map((step, index) => (
-                  <div key={step.step || index} className="flex flex-col items-center flex-1 relative">
+                  <div
+                    key={step.step || index}
+                    className="flex flex-col items-center flex-1 relative"
+                  >
                     {/* Timeline Circle */}
                     <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-600 dark:bg-green-500 border-4 border-white dark:border-slate-950 text-white relative z-10 flex-shrink-0">
                       <CheckCircle className="h-5 w-5" />
@@ -210,7 +217,9 @@ export default function SolicitudDetalle() {
 
                       {step.proofOfPaymentStatus && (
                         <div className="mt-2 inline-flex items-center px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
-                          {getProofOfPaymentStatusLabel(step.proofOfPaymentStatus)}
+                          {getProofOfPaymentStatusLabel(
+                            step.proofOfPaymentStatus,
+                          )}
                         </div>
                       )}
 
@@ -222,10 +231,13 @@ export default function SolicitudDetalle() {
 
                       {step.completedAt && (
                         <span className="text-xs text-slate-500 dark:text-slate-400 mt-2 block">
-                          {new Date(step.completedAt).toLocaleDateString("es-ES", {
-                            month: "short",
-                            day: "numeric",
-                          })}
+                          {new Date(step.completedAt).toLocaleDateString(
+                            "es-ES",
+                            {
+                              month: "short",
+                              day: "numeric",
+                            },
+                          )}
                         </span>
                       )}
                     </div>
@@ -312,84 +324,84 @@ export default function SolicitudDetalle() {
               Detalles de Items
             </h3>
 
-          {solicitud.items.length > 0 ? (
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-slate-200 dark:border-slate-800">
-                    <th className="text-left py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-12">
-                      #
-                    </th>
-                    <th className="text-left py-3 px-2 font-semibold text-slate-700 dark:text-slate-300">
-                      Descripción
-                    </th>
-                    <th className="text-right py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-32">
-                      Cantidad
-                    </th>
-                    <th className="text-right py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-32">
-                      Precio Unitario
-                    </th>
-                    <th className="text-right py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-32">
-                      Monto
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
-                  {solicitud.items.map((item, index) => (
-                    <tr
-                      key={item.id || item.itemNumber || index}
-                      className="hover:bg-slate-50/50 dark:hover:bg-slate-900/30"
-                    >
-                      <td className="py-3 px-2">
-                        <span className="text-slate-700 dark:text-slate-300">
-                          {item.itemNumber}
-                        </span>
-                      </td>
-                      <td className="py-3 px-2">
-                        <span className="text-slate-700 dark:text-slate-300">
-                          {item.description}
-                        </span>
-                      </td>
-                      <td className="py-3 px-2 text-right">
-                        <span className="text-slate-700 dark:text-slate-300">
-                          {item.quantity || 1}
-                        </span>
-                      </td>
-                      <td className="py-3 px-2 text-right">
-                        <span className="text-slate-700 dark:text-slate-300">
-                          {formatCurrency(
-                            item.unitPrice || 0,
-                            solicitud.currency,
-                          )}
-                        </span>
-                      </td>
-                      <td className="py-3 px-2 text-right">
-                        <span className="font-semibold text-[#050A30] dark:text-white">
-                          {formatCurrency(item.amount, solicitud.currency)}
-                        </span>
-                      </td>
+            {solicitud.items.length > 0 ? (
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-slate-200 dark:border-slate-800">
+                      <th className="text-left py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-12">
+                        #
+                      </th>
+                      <th className="text-left py-3 px-2 font-semibold text-slate-700 dark:text-slate-300">
+                        Descripción
+                      </th>
+                      <th className="text-right py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-32">
+                        Cantidad
+                      </th>
+                      <th className="text-right py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-32">
+                        Precio Unitario
+                      </th>
+                      <th className="text-right py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-32">
+                        Monto
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          ) : (
-            <div className="text-center py-6 text-slate-600 dark:text-slate-400">
-              No hay items registrados
-            </div>
-          )}
+                  </thead>
+                  <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+                    {solicitud.items.map((item, index) => (
+                      <tr
+                        key={item.id || item.itemNumber || index}
+                        className="hover:bg-slate-50/50 dark:hover:bg-slate-900/30"
+                      >
+                        <td className="py-3 px-2">
+                          <span className="text-slate-700 dark:text-slate-300">
+                            {item.itemNumber}
+                          </span>
+                        </td>
+                        <td className="py-3 px-2">
+                          <span className="text-slate-700 dark:text-slate-300">
+                            {item.description}
+                          </span>
+                        </td>
+                        <td className="py-3 px-2 text-right">
+                          <span className="text-slate-700 dark:text-slate-300">
+                            {item.quantity || 1}
+                          </span>
+                        </td>
+                        <td className="py-3 px-2 text-right">
+                          <span className="text-slate-700 dark:text-slate-300">
+                            {formatCurrency(
+                              item.unitPrice || 0,
+                              solicitud.currency,
+                            )}
+                          </span>
+                        </td>
+                        <td className="py-3 px-2 text-right">
+                          <span className="font-semibold text-[#050A30] dark:text-white">
+                            {formatCurrency(item.amount, solicitud.currency)}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="text-center py-6 text-slate-600 dark:text-slate-400">
+                No hay items registrados
+              </div>
+            )}
 
-          {/* Total */}
-          <div className="flex justify-end pt-4 border-t border-slate-200 dark:border-slate-800">
-            <div className="flex items-center gap-4">
-              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                Total:
-              </span>
-              <span className="text-2xl font-bold text-[#050A30] dark:text-white">
-                {formatCurrency(solicitud.totalAmount, solicitud.currency)}
-              </span>
+            {/* Total */}
+            <div className="flex justify-end pt-4 border-t border-slate-200 dark:border-slate-800">
+              <div className="flex items-center gap-4">
+                <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                  Total:
+                </span>
+                <span className="text-2xl font-bold text-[#050A30] dark:text-white">
+                  {formatCurrency(solicitud.totalAmount, solicitud.currency)}
+                </span>
+              </div>
             </div>
-          </div>
           </div>
         </div>
 
@@ -493,7 +505,10 @@ export default function SolicitudDetalle() {
             <div className="space-y-3">
               {solicitud.approvals.map((approval, index) => (
                 <div
-                  key={approval.id || `approval-${approval.approverUserId}-${approval.approvalOrder}`}
+                  key={
+                    approval.id ||
+                    `approval-${approval.approverUserId}-${approval.approvalOrder}`
+                  }
                   className="flex items-start justify-between p-4 bg-slate-50 dark:bg-slate-900/30 rounded-lg border border-slate-200 dark:border-slate-800"
                 >
                   <div className="flex-1">
@@ -602,10 +617,7 @@ export default function SolicitudDetalle() {
 
         {/* Action Buttons */}
         <div className="flex gap-3 justify-end">
-          <Button
-            variant="outline"
-            onClick={() => navigate("/solicitudes")}
-          >
+          <Button variant="outline" onClick={() => navigate("/solicitudes")}>
             Volver a Solicitudes
           </Button>
         </div>
