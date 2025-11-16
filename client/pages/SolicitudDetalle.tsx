@@ -169,53 +169,56 @@ export default function SolicitudDetalle() {
               Línea de tiempo
             </h2>
 
-            <div className="relative space-y-6">
-              {solicitud.workflowSteps.map((step, index) => (
-                <div key={step.step || index} className="flex gap-4">
-                  {/* Timeline Line */}
-                  <div className="flex flex-col items-center">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-600 dark:bg-green-500 border-4 border-white dark:border-slate-950 text-white">
+            <div className="overflow-x-auto">
+              <div className="relative flex gap-2 min-w-min pb-4">
+                {solicitud.workflowSteps.map((step, index) => (
+                  <div key={step.step || index} className="flex flex-col items-center flex-shrink-0 w-40">
+                    {/* Timeline Connector */}
+                    {index < solicitud.workflowSteps.length - 1 && (
+                      <div className="absolute top-4 left-20 w-8 h-1 bg-green-200 dark:bg-green-900/30" style={{width: 'calc(160px + 8px)'}} />
+                    )}
+
+                    {/* Timeline Circle */}
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-600 dark:bg-green-500 border-4 border-white dark:border-slate-950 text-white relative z-10">
                       <CheckCircle className="h-5 w-5" />
                     </div>
-                    {index < solicitud.workflowSteps.length - 1 && (
-                      <div className="w-1 bg-green-200 dark:bg-green-900/30 flex-grow my-2 min-h-16" />
-                    )}
-                  </div>
 
-                  {/* Step Content */}
-                  <div className="flex-1 pt-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                      <div>
-                        <h3 className="font-semibold text-[#050A30] dark:text-white">
-                          {getWorkflowStepLabel(step.step)}
-                        </h3>
-                        {step.completedBy && (
-                          <p className="text-sm text-slate-600 dark:text-slate-400">
-                            Por {step.completedByName}
-                          </p>
-                        )}
-                      </div>
+                    {/* Step Content */}
+                    <div className="mt-4 text-center flex-1">
+                      <h3 className="font-semibold text-[#050A30] dark:text-white text-sm leading-tight">
+                        {getWorkflowStepLabel(step.step)}
+                      </h3>
+
+                      {step.completedBy && (
+                        <p className="text-xs text-slate-600 dark:text-slate-400 mt-2">
+                          {step.completedByName}
+                        </p>
+                      )}
+
+                      {step.proofOfPaymentStatus && (
+                        <div className="mt-2 inline-flex items-center px-2 py-1 rounded text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
+                          {getProofOfPaymentStatusLabel(step.proofOfPaymentStatus)}
+                        </div>
+                      )}
+
+                      {step.comment && (
+                        <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-2">
+                          {step.comment}
+                        </p>
+                      )}
+
                       {step.completedAt && (
-                        <span className="text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap">
-                          {formatDate(step.completedAt)}
+                        <span className="text-xs text-slate-500 dark:text-slate-400 mt-2 block">
+                          {new Date(step.completedAt).toLocaleDateString("es-ES", {
+                            month: "short",
+                            day: "numeric",
+                          })}
                         </span>
                       )}
                     </div>
-
-                    {step.proofOfPaymentStatus && (
-                      <div className="mt-3 inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
-                        {getProofOfPaymentStatusLabel(step.proofOfPaymentStatus)}
-                      </div>
-                    )}
-
-                    {step.comment && (
-                      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-                        {step.comment}
-                      </p>
-                    )}
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         )}
