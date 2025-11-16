@@ -283,7 +283,7 @@ export default function SolicitudDetalle() {
               <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Moneda
               </label>
-              <div className="text-[#050A30] dark:text-white font-medium">
+              <div className="border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 bg-slate-50 dark:bg-slate-900/30 text-[#050A30] dark:text-white font-medium">
                 {solicitud.currency}
               </div>
             </div>
@@ -292,7 +292,7 @@ export default function SolicitudDetalle() {
               <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Monto Total
               </label>
-              <div className="text-2xl font-bold text-[#042D62] dark:text-white">
+              <div className="border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 bg-slate-50 dark:bg-slate-900/30 text-2xl font-bold text-[#042D62] dark:text-white">
                 {formatCurrency(solicitud.totalAmount, solicitud.currency)}
               </div>
             </div>
@@ -301,7 +301,9 @@ export default function SolicitudDetalle() {
               <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Estado
               </label>
-              <StatusBadge status={solicitud.status} />
+              <div className="border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 bg-slate-50 dark:bg-slate-900/30 inline-block">
+                <StatusBadge status={solicitud.status} />
+              </div>
             </div>
           </div>
         </div>
