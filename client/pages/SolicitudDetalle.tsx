@@ -171,6 +171,24 @@ export default function SolicitudDetalle() {
                 {/* Background connector line */}
                 <div className="absolute top-4 left-0 right-0 h-1 bg-green-200 dark:bg-green-900/30 z-0" />
 
+                {/* Initial step - Creation date */}
+                <div className="flex flex-col items-center flex-1 relative">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-600 dark:bg-green-500 border-4 border-white dark:border-slate-950 text-white relative z-10 flex-shrink-0">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div className="mt-4 text-center w-full px-2">
+                    <h3 className="font-semibold text-[#050A30] dark:text-white text-sm leading-tight">
+                      Solicitud creada
+                    </h3>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 mt-2 block">
+                      {new Date(solicitud.createdAt).toLocaleDateString("es-ES", {
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </span>
+                  </div>
+                </div>
+
                 {solicitud.workflowSteps.map((step, index) => (
                   <div key={step.step || index} className="flex flex-col items-center flex-1 relative">
                     {/* Timeline Circle */}
