@@ -149,16 +149,13 @@ export default function SolicitudDetalle() {
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1 min-w-0">
               <h1 className="text-3xl md:text-4xl font-bold text-[#050A30] dark:text-white break-words">
-                {solicitud.title}
+                {solicitud.description}
               </h1>
               <p className="text-[#173747] dark:text-slate-400 mt-2">
                 {solicitud.code} • {solicitud.ministryName}
               </p>
             </div>
           </div>
-          <p className="text-[#173747] dark:text-slate-300 text-lg">
-            {solicitud.description}
-          </p>
         </div>
 
         {/* Workflow Timeline */}
