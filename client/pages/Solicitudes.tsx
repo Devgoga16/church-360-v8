@@ -306,24 +306,24 @@ export default function Solicitudes() {
 
         {/* Stats Summary */}
         {filteredSolicitudes.length > 0 && (
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-6">
-            <h3 className="font-bold text-slate-900 dark:text-white mb-4">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4">
+            <h3 className="font-bold text-sm md:text-base text-slate-900 dark:text-white mb-3">
               Resumen
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <div>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <p className="text-xs text-slate-600 dark:text-slate-400">
                   Total de Solicitudes
                 </p>
-                <p className="text-2xl font-bold text-slate-900 dark:text-white">
+                <p className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">
                   {filteredSolicitudes.length}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <p className="text-xs text-slate-600 dark:text-slate-400">
                   Monto Total
                 </p>
-                <p className="text-2xl font-bold text-slate-900 dark:text-white">
+                <p className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">
                   {formatCurrency(
                     filteredSolicitudes.reduce(
                       (sum, s) => sum + s.totalAmount,
@@ -333,10 +333,10 @@ export default function Solicitudes() {
                 </p>
               </div>
               <div>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <p className="text-xs text-slate-600 dark:text-slate-400">
                   Aprobadas
                 </p>
-                <p className="text-2xl font-bold text-success">
+                <p className="text-lg md:text-xl font-bold text-success">
                   {
                     filteredSolicitudes.filter((s) =>
                       [
@@ -348,10 +348,10 @@ export default function Solicitudes() {
                 </p>
               </div>
               <div>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <p className="text-xs text-slate-600 dark:text-slate-400">
                   Pendientes
                 </p>
-                <p className="text-2xl font-bold text-warning">
+                <p className="text-lg md:text-xl font-bold text-warning">
                   {
                     filteredSolicitudes.filter((s) =>
                       [
