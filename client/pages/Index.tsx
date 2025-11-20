@@ -99,8 +99,8 @@ export default function Index() {
         ) : null}
 
         {/* Quick Actions Buttons */}
-        <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
-          <h3 className="text-sm font-semibold text-[#050A30] dark:text-white uppercase tracking-widest mb-4 pl-0.5">
+        <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 p-3 shadow-sm">
+          <h3 className="text-xs font-semibold text-[#050A30] dark:text-white uppercase tracking-widest mb-3 pl-0.5">
             Acciones Rápidas
           </h3>
           <div className="flex flex-wrap gap-2">
