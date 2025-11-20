@@ -467,18 +467,18 @@ export default function NuevaSolicitud() {
           </div>
 
           {/* Items Table */}
-          <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 p-6 space-y-4">
+          <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 p-4 space-y-3">
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-[#050A30] dark:text-white">
+              <h2 className="text-base font-semibold text-[#050A30] dark:text-white">
                 Detalles de Items
               </h2>
               <Button
                 type="button"
                 onClick={handleAddItem}
-                className="gap-2"
+                className="gap-2 h-8 text-xs"
                 size="sm"
               >
-                <Plus className="h-4 w-4" />
+                <Plus className="h-3.5 w-3.5" />
                 Agregar Item
               </Button>
             </div>
