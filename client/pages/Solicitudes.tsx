@@ -183,49 +183,108 @@ export default function Solicitudes() {
             ))}
           </div>
         ) : filteredSolicitudes.length > 0 ? (
-          <div className="space-y-3">
-            {filteredSolicitudes.map((solicitud) => (
-              <Link
-                key={solicitud.id}
-                to={`/solicitudes/${solicitud.id}`}
-                className="block bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4 md:p-6 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-md transition-all duration-200 group"
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-start gap-3 mb-2">
-                      <div>
-                        <h3 className="font-bold text-[#050A30] dark:text-white group-hover:text-primary transition-colors line-clamp-1">
-                          {solicitud.title}
-                        </h3>
-                        <p className="text-sm text-[#173747] dark:text-slate-400">
-                          {solicitud.code} • {solicitud.ministryName}
+          viewMode === "grid" ? (
+            <div className="space-y-3">
+              {filteredSolicitudes.map((solicitud) => (
+                <Link
+                  key={solicitud.id}
+                  to={`/solicitudes/${solicitud.id}`}
+                  className="block bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4 md:p-6 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-md transition-all duration-200 group"
+                >
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start gap-3 mb-2">
+                        <div>
+                          <h3 className="font-bold text-[#050A30] dark:text-white group-hover:text-primary transition-colors line-clamp-1">
+                            {solicitud.title}
+                          </h3>
+                          <p className="text-sm text-[#173747] dark:text-slate-400">
+                            {solicitud.code} • {solicitud.ministryName}
+                          </p>
+                        </div>
+                      </div>
+                      <p className="text-sm text-[#173747] dark:text-slate-400 line-clamp-1">
+                        {solicitud.description}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 md:gap-6">
+                      <div className="text-right">
+                        <p className="font-bold text-[#050A30] dark:text-white">
+                          {formatCurrency(solicitud.totalAmount)}
+                        </p>
+                        <p className="text-xs text-[#173747] dark:text-slate-400">
+                          {formatDate(solicitud.createdAt)}
                         </p>
                       </div>
-                    </div>
-                    <p className="text-sm text-[#173747] dark:text-slate-400 line-clamp-1">
-                      {solicitud.description}
-                    </p>
-                  </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 md:gap-6">
-                    <div className="text-right">
-                      <p className="font-bold text-[#050A30] dark:text-white">
+                      <div className="flex items-center gap-3">
+                        <StatusBadge status={solicitud.status} />
+                        <ChevronRight className="h-5 w-5 text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 overflow-hidden">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800">
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">
+                      Código
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">
+                      Título
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">
+                      Ministerio
+                    </th>
+                    <th className="px-6 py-4 text-right text-sm font-semibold text-slate-900 dark:text-white">
+                      Monto
+                    </th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-slate-900 dark:text-white">
+                      Fecha
+                    </th>
+                    <th className="px-6 py-4 text-center text-sm font-semibold text-slate-900 dark:text-white">
+                      Estado
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+                  {filteredSolicitudes.map((solicitud) => (
+                    <tr
+                      key={solicitud.id}
+                      className="hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                      onClick={() => {
+                        window.location.href = `/solicitudes/${solicitud.id}`;
+                      }}
+                    >
+                      <td className="px-6 py-4 text-sm font-medium text-[#042D62] dark:text-primary">
+                        {solicitud.code}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-slate-900 dark:text-white">
+                        <div className="line-clamp-1">{solicitud.title}</div>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">
+                        {solicitud.ministryName}
+                      </td>
+                      <td className="px-6 py-4 text-sm font-semibold text-slate-900 dark:text-white text-right">
                         {formatCurrency(solicitud.totalAmount)}
-                      </p>
-                      <p className="text-xs text-[#173747] dark:text-slate-400">
+                      </td>
+                      <td className="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">
                         {formatDate(solicitud.createdAt)}
-                      </p>
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                      <StatusBadge status={solicitud.status} />
-                      <ChevronRight className="h-5 w-5 text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                      </td>
+                      <td className="px-6 py-4 text-center">
+                        <StatusBadge status={solicitud.status} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )
         ) : (
           <div className="text-center py-12 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800">
             <p className="text-slate-600 dark:text-slate-400 mb-4">
