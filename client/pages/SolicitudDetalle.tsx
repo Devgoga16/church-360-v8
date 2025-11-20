@@ -290,31 +290,22 @@ export default function SolicitudDetalle() {
             Detalles de la Solicitud
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                Descripción General
+              </label>
+              <div className="border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 bg-slate-50 dark:bg-slate-900/30 text-[#050A30] dark:text-white font-medium">
+                {solicitud.description}
+              </div>
+            </div>
+
             <div>
               <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Moneda
               </label>
               <div className="border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 bg-slate-50 dark:bg-slate-900/30 text-[#050A30] dark:text-white font-medium">
                 {solicitud.currency}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                Monto Total
-              </label>
-              <div className="border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 bg-slate-50 dark:bg-slate-900/30 text-2xl font-bold text-[#042D62] dark:text-white">
-                {formatCurrency(solicitud.totalAmount, solicitud.currency)}
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                Estado
-              </label>
-              <div className="border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 bg-slate-50 dark:bg-slate-900/30 inline-block">
-                <StatusBadge status={solicitud.status} />
               </div>
             </div>
           </div>
