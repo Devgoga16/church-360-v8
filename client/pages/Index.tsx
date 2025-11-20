@@ -134,14 +134,14 @@ export default function Index() {
 
         {/* Recent Solicitudes Section */}
         <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
-          <div className="p-6">
+          <div className="p-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-bold text-[#050A30] dark:text-white">
+              <h2 className="text-base font-bold text-[#050A30] dark:text-white">
                 Solicitudes Recientes
               </h2>
               <Link
                 to="/solicitudes"
-                className="flex items-center gap-2 text-[#042D62] hover:text-[#042D62]/80 font-medium text-sm transition-colors"
+                className="flex items-center gap-2 text-[#042D62] hover:text-[#042D62]/80 font-medium text-xs md:text-sm transition-colors"
               >
                 Ver todas
                 <ArrowRight className="h-4 w-4" />
