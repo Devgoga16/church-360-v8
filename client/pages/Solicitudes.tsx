@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { StatusBadge } from "@/components/StatusBadge";
 import { Solicitud, SolicitudStatus } from "@shared/api";
-import { Plus, Search, Filter, ChevronRight } from "lucide-react";
+import { Plus, Search, Filter, ChevronRight, Grid, Table } from "lucide-react";
 
 const statusOptions: Array<{ value: SolicitudStatus; label: string }> = [
   { value: SolicitudStatus.BORRADOR, label: "Borrador" },
