@@ -26,6 +26,7 @@ export default function Solicitudes() {
   const [selectedStatus, setSelectedStatus] = useState<SolicitudStatus | "">(
     "",
   );
+  const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
