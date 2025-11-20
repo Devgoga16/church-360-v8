@@ -830,19 +830,20 @@ export default function NuevaSolicitud() {
           </div>
 
           {/* Submit Button - Sticky */}
-          <div className="sticky bottom-0 left-0 right-0 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 p-6 flex gap-3 justify-end shadow-lg">
+          <div className="sticky bottom-0 left-0 right-0 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 p-4 flex gap-2 justify-end shadow-lg">
             <Button
               type="button"
               variant="outline"
               onClick={() => navigate("/solicitudes")}
               disabled={submitting}
+              className="text-sm h-9"
             >
               Cancelar
             </Button>
             <Button
               type="submit"
               disabled={submitting}
-              className="gap-2 bg-[#042D62] hover:bg-[#042D62]/90"
+              className="gap-2 bg-[#042D62] hover:bg-[#042D62]/90 text-sm h-9"
             >
               {submitting ? "Creando..." : "Crear Solicitud"}
             </Button>
