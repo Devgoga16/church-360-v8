@@ -326,13 +326,7 @@ export default function SolicitudDetalle() {
                       <th className="text-left py-3 px-2 font-semibold text-slate-700 dark:text-slate-300">
                         Descripción
                       </th>
-                      <th className="text-right py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-32">
-                        Cantidad
-                      </th>
-                      <th className="text-right py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-32">
-                        Precio Unitario
-                      </th>
-                      <th className="text-right py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-32">
+                      <th className="text-left py-3 px-2 font-semibold text-slate-700 dark:text-slate-300 w-28">
                         Monto
                       </th>
                     </tr>
@@ -353,20 +347,7 @@ export default function SolicitudDetalle() {
                             {item.description}
                           </span>
                         </td>
-                        <td className="py-3 px-2 text-right">
-                          <span className="text-slate-700 dark:text-slate-300">
-                            {item.quantity || 1}
-                          </span>
-                        </td>
-                        <td className="py-3 px-2 text-right">
-                          <span className="text-slate-700 dark:text-slate-300">
-                            {formatCurrency(
-                              item.unitPrice || 0,
-                              solicitud.currency,
-                            )}
-                          </span>
-                        </td>
-                        <td className="py-3 px-2 text-right">
+                        <td className="py-3 px-2">
                           <span className="font-semibold text-[#050A30] dark:text-white">
                             {formatCurrency(item.amount, solicitud.currency)}
                           </span>
