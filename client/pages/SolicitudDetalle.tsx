@@ -146,13 +146,13 @@ export default function SolicitudDetalle() {
         </div>
 
         {/* Title Section */}
-        <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 p-6 space-y-2">
-          <div className="flex items-start justify-between gap-4">
+        <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 p-4 space-y-2">
+          <div className="flex items-start justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <h1 className="text-2xl md:text-3xl font-bold text-[#050A30] dark:text-white break-words">
+              <h1 className="text-lg md:text-xl font-bold text-[#050A30] dark:text-white break-words">
                 {solicitud.description}
               </h1>
-              <p className="text-[#173747] dark:text-slate-400 mt-2">
+              <p className="text-xs md:text-sm text-[#173747] dark:text-slate-400 mt-1">
                 {solicitud.code} • {solicitud.ministryName}
               </p>
             </div>
