@@ -415,7 +415,7 @@ export function Sidebar({
         <div
           className={cn(
             "border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/30",
-            isCollapsed ? "px-2 py-6 flex flex-col items-center" : "px-4 py-6",
+            isCollapsed ? "px-2 py-4 sm:py-6 flex flex-col items-center" : "px-3 sm:px-4 py-4 sm:py-6",
           )}
         >
           <Link
