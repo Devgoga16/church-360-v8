@@ -216,7 +216,6 @@ export function Sidebar({
                             : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50",
                         )}
                       >
-                        <module.icon className="h-4 w-4 flex-shrink-0" />
                         <span className="flex-1 text-left">{module.label}</span>
                         <ChevronDown
                           className={cn(
