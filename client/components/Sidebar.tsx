@@ -396,8 +396,8 @@ export function Sidebar({
             )}
           >
             <span className="inline-block w-2 h-2 rounded-full bg-[#042D62]"></span>
-            <span title={isCollapsed ? "Administrador" : undefined}>
-              {isCollapsed ? "Admin" : "Administrador"}
+            <span title={isCollapsed && user ? user.roles[0] : undefined}>
+              {isCollapsed && user ? user.roles[0]?.substring(0, 4) : user?.roles[0]}
             </span>
           </div>
         </div>
