@@ -38,17 +38,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ email, password }),
       });
 
+      console.log("[Auth] Login response status:", response.status);
+
       if (!response.ok) {
-        throw new Error("Login failed");
+        console.log("[Auth] Response not OK, status:", response.status);
+        const errorData = await response.json();
+        console.log("[Auth] Error data:", errorData);
+        throw new Error(errorData.error || `HTTP ${response.status}: Login failed`);
       }
 
       const data = await response.json();
+      console.log("[Auth] Login response data:", data);
+
       if (data.success) {
         localStorage.setItem("user", JSON.stringify(data.data));
         setUser(data.data);
       } else {
         throw new Error(data.error || "Login failed");
       }
+    } catch (error) {
+      console.error("[Auth] Login error:", error);
+      throw error;
     } finally {
       setIsLoading(false);
     }
