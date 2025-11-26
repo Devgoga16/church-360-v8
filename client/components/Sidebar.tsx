@@ -43,6 +43,7 @@ interface RoleItem {
 const roleStructure: RoleItem[] = [
   {
     label: "Administrador",
+    id: "admin",
     icon: Settings,
     modules: [
       {
