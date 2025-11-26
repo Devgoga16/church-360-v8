@@ -65,14 +65,14 @@ export function Header({ onToggleSidebar }: HeaderProps) {
             <div className="relative">
               <button
                 onClick={() => setShowUserMenu(!showUserMenu)}
-                className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-white/10 transition-colors"
               >
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#5E17EB] to-[#5E17EB] flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">
+                <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center">
+                  <span className="text-[#042D62] text-xs font-bold">
                     {userInitial}
                   </span>
                 </div>
-                <span className="text-xs font-medium text-[#050A30] dark:text-white hidden sm:block">
+                <span className="text-xs font-medium text-white hidden sm:block">
                   {userName.split(" ")[0]}{" "}
                   {userName.split(" ")[1]?.charAt(0)}.
                 </span>
