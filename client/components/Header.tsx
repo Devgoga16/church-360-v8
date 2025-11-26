@@ -20,7 +20,8 @@ export function Header({ onToggleSidebar }: HeaderProps) {
     navigate("/login");
   };
 
-  const userInitial = user?.name?.charAt(0).toUpperCase() || "U";
+  const userName = user?.person?.nombreCompleto || user?.username || "Usuario";
+  const userInitial = userName.charAt(0).toUpperCase();
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-white border-slate-200 dark:bg-slate-950 dark:border-slate-800">
