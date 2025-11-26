@@ -177,6 +177,7 @@ const roleStructure: RoleItem[] = [
   },
   {
     label: "Pastor Principal",
+    id: "pastor_general",
     icon: Church,
     modules: [
       {
