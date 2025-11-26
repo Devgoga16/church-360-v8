@@ -115,30 +115,17 @@ export default function Login() {
 
           <div className="space-y-3">
             <button
-              onClick={() => quickLogin("admin@iglesia360.com")}
+              onClick={() => quickLogin("admin", "admin123")}
               disabled={isLoading}
               className="w-full p-3 border-2 border-slate-200 rounded-lg hover:border-[#042D62] hover:bg-blue-50 transition-all text-left"
             >
-              <div className="font-semibold text-slate-900">Admin (1 rol)</div>
+              <div className="font-semibold text-slate-900">Admin (2 roles)</div>
               <div className="text-sm text-slate-600">admin@iglesia360.com</div>
-            </button>
-
-            <button
-              onClick={() => quickLogin("director@iglesia360.com")}
-              disabled={isLoading}
-              className="w-full p-3 border-2 border-slate-200 rounded-lg hover:border-[#042D62] hover:bg-blue-50 transition-all text-left"
-            >
-              <div className="font-semibold text-slate-900">
-                Director (3 roles)
-              </div>
-              <div className="text-sm text-slate-600">
-                director@iglesia360.com
-              </div>
             </button>
           </div>
 
           <p className="text-center text-xs text-slate-500 mt-6">
-            Contraseña de prueba: <span className="font-mono">password</span>
+            Credenciales: <span className="font-mono">admin</span> / <span className="font-mono">admin123</span>
           </p>
         </div>
       </div>
