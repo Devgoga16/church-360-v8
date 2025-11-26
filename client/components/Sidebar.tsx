@@ -29,7 +29,6 @@ interface MenuItem {
 
 interface ModuleItem {
   label: string;
-  icon: React.ComponentType<any>;
   items: MenuItem[];
 }
 
@@ -46,7 +45,6 @@ const roleStructure: RoleItem[] = [
     modules: [
       {
         label: "Configuración General",
-        icon: Settings,
         items: [
           { label: "Parámetros del Sistema", icon: Settings, href: "/admin/config/parameters" },
           { label: "Datos de la Iglesia", icon: Church, href: "/admin/config/church-data" },
@@ -55,7 +53,6 @@ const roleStructure: RoleItem[] = [
       },
       {
         label: "Gestión de Usuarios",
-        icon: Users,
         items: [
           { label: "Lista de Usuarios", icon: Users, href: "/admin/users/list" },
           { label: "Roles y Permisos", icon: Settings, href: "/admin/users/roles" },
@@ -64,7 +61,6 @@ const roleStructure: RoleItem[] = [
       },
       {
         label: "Reportes",
-        icon: BarChart3,
         items: [
           { label: "Actividad del Sistema", icon: BarChart3, href: "/admin/reports/activity" },
           { label: "Estadísticas de Usuarios", icon: Users, href: "/admin/reports/users" },
@@ -79,7 +75,6 @@ const roleStructure: RoleItem[] = [
     modules: [
       {
         label: "Finanzas",
-        icon: DollarSign,
         items: [
           { label: "Ingresos", icon: DollarSign, href: "/treasurer/finance/income" },
           { label: "Egresos", icon: DollarSign, href: "/treasurer/finance/expenses" },
@@ -88,7 +83,6 @@ const roleStructure: RoleItem[] = [
       },
       {
         label: "Presupuestos",
-        icon: PieChart,
         items: [
           { label: "Crear Presupuesto", icon: PieChart, href: "/treasurer/budgets/create" },
           { label: "Ver Presupuestos", icon: PieChart, href: "/treasurer/budgets/view" },
@@ -97,7 +91,6 @@ const roleStructure: RoleItem[] = [
       },
       {
         label: "Auditoría",
-        icon: ClipboardCheck,
         items: [
           { label: "Registro de Transacciones", icon: ClipboardCheck, href: "/treasurer/audit/transactions" },
           { label: "Reconciliación", icon: BarChart3, href: "/treasurer/audit/reconciliation" },
@@ -112,7 +105,6 @@ const roleStructure: RoleItem[] = [
     modules: [
       {
         label: "Ministerios",
-        icon: Heart,
         items: [
           { label: "Lista de Ministerios", icon: Heart, href: "/pastor/ministries/list" },
           { label: "Crear Ministerio", icon: Heart, href: "/pastor/ministries/create" },
@@ -121,7 +113,6 @@ const roleStructure: RoleItem[] = [
       },
       {
         label: "Predicaciones",
-        icon: BookOpen,
         items: [
           { label: "Programar Predicación", icon: BookOpen, href: "/pastor/sermons/schedule" },
           { label: "Historial de Mensajes", icon: BookOpen, href: "/pastor/sermons/history" },
@@ -130,7 +121,6 @@ const roleStructure: RoleItem[] = [
       },
       {
         label: "Miembros",
-        icon: Users,
         items: [
           { label: "Directorio de Miembros", icon: Users, href: "/pastor/members/directory" },
           { label: "Seguimiento Pastoral", icon: Heart, href: "/pastor/members/follow-up" },
