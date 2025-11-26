@@ -12,6 +12,7 @@ import {
   Church,
   BookOpen,
   Heart,
+  HelpCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/context/AuthContext";
