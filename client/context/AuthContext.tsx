@@ -6,15 +6,80 @@ import React, {
   ReactNode,
 } from "react";
 
+export interface Permission {
+  rol: {
+    _id: string;
+    nombre: string;
+    icono: string;
+    descripcion: string;
+  };
+  modulos: Array<{
+    module: {
+      _id: string;
+      nombre: string;
+      descripcion: string;
+      orden: number;
+    };
+    opciones: Array<{
+      _id: string;
+      nombre: string;
+      ruta: string;
+      orden: number;
+    }>;
+  }>;
+}
+
 export interface User {
-  id: number;
+  _id: string;
+  username: string;
   email: string;
-  name: string;
-  roles: string[];
+  person?: {
+    _id: string;
+    nombres: string;
+    apellidos: string;
+    tipoDocumento: string;
+    numeroDocumento: string;
+    fechaNacimiento: string;
+    telefono: string;
+    direccion: string;
+    activo: boolean;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+    nombreCompleto: string;
+    id: string;
+  };
+  roles: Array<{
+    _id: string;
+    nombre: string;
+    icono: string;
+    descripcion: string;
+    activo: boolean;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+  }>;
+  intentosFallidos: number;
+  activo: boolean;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+  ultimoAcceso: string;
+}
+
+export interface AuthResponse {
+  success: boolean;
+  data: {
+    token: string;
+    user: User;
+    permisos: Permission[];
+  };
 }
 
 interface AuthContextType {
   user: User | null;
+  permisos: Permission[] | null;
+  token: string | null;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
