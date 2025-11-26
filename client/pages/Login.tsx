@@ -51,7 +51,9 @@ export default function Login() {
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-[#042D62] mb-2">Iglesia 360</h1>
+            <h1 className="text-3xl font-bold text-[#042D62] mb-2">
+              Iglesia 360
+            </h1>
             <p className="text-slate-600">Gestión integral para tu iglesia</p>
           </div>
 
@@ -126,8 +128,12 @@ export default function Login() {
               disabled={isLoading}
               className="w-full p-3 border-2 border-slate-200 rounded-lg hover:border-[#042D62] hover:bg-blue-50 transition-all text-left"
             >
-              <div className="font-semibold text-slate-900">Director (3 roles)</div>
-              <div className="text-sm text-slate-600">director@iglesia360.com</div>
+              <div className="font-semibold text-slate-900">
+                Director (3 roles)
+              </div>
+              <div className="text-sm text-slate-600">
+                director@iglesia360.com
+              </div>
             </button>
           </div>
 

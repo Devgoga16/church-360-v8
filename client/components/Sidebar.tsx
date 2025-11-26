@@ -46,25 +46,61 @@ const roleStructure: RoleItem[] = [
       {
         label: "Configuración General",
         items: [
-          { label: "Parámetros del Sistema", icon: Settings, href: "/admin/config/parameters" },
-          { label: "Datos de la Iglesia", icon: Church, href: "/admin/config/church-data" },
-          { label: "Respaldos", icon: ClipboardCheck, href: "/admin/config/backups" },
+          {
+            label: "Parámetros del Sistema",
+            icon: Settings,
+            href: "/admin/config/parameters",
+          },
+          {
+            label: "Datos de la Iglesia",
+            icon: Church,
+            href: "/admin/config/church-data",
+          },
+          {
+            label: "Respaldos",
+            icon: ClipboardCheck,
+            href: "/admin/config/backups",
+          },
         ],
       },
       {
         label: "Gestión de Usuarios",
         items: [
-          { label: "Lista de Usuarios", icon: Users, href: "/admin/users/list" },
-          { label: "Roles y Permisos", icon: Settings, href: "/admin/users/roles" },
-          { label: "Auditoría de Acceso", icon: BarChart3, href: "/admin/users/audit" },
+          {
+            label: "Lista de Usuarios",
+            icon: Users,
+            href: "/admin/users/list",
+          },
+          {
+            label: "Roles y Permisos",
+            icon: Settings,
+            href: "/admin/users/roles",
+          },
+          {
+            label: "Auditoría de Acceso",
+            icon: BarChart3,
+            href: "/admin/users/audit",
+          },
         ],
       },
       {
         label: "Reportes",
         items: [
-          { label: "Actividad del Sistema", icon: BarChart3, href: "/admin/reports/activity" },
-          { label: "Estadísticas de Usuarios", icon: Users, href: "/admin/reports/users" },
-          { label: "Exportar Datos", icon: ClipboardCheck, href: "/admin/reports/export" },
+          {
+            label: "Actividad del Sistema",
+            icon: BarChart3,
+            href: "/admin/reports/activity",
+          },
+          {
+            label: "Estadísticas de Usuarios",
+            icon: Users,
+            href: "/admin/reports/users",
+          },
+          {
+            label: "Exportar Datos",
+            icon: ClipboardCheck,
+            href: "/admin/reports/export",
+          },
         ],
       },
     ],
@@ -76,25 +112,61 @@ const roleStructure: RoleItem[] = [
       {
         label: "Finanzas",
         items: [
-          { label: "Ingresos", icon: DollarSign, href: "/treasurer/finance/income" },
-          { label: "Egresos", icon: DollarSign, href: "/treasurer/finance/expenses" },
-          { label: "Estado Bancario", icon: BarChart3, href: "/treasurer/finance/bank-status" },
+          {
+            label: "Ingresos",
+            icon: DollarSign,
+            href: "/treasurer/finance/income",
+          },
+          {
+            label: "Egresos",
+            icon: DollarSign,
+            href: "/treasurer/finance/expenses",
+          },
+          {
+            label: "Estado Bancario",
+            icon: BarChart3,
+            href: "/treasurer/finance/bank-status",
+          },
         ],
       },
       {
         label: "Presupuestos",
         items: [
-          { label: "Crear Presupuesto", icon: PieChart, href: "/treasurer/budgets/create" },
-          { label: "Ver Presupuestos", icon: PieChart, href: "/treasurer/budgets/view" },
-          { label: "Comparativas", icon: BarChart3, href: "/treasurer/budgets/compare" },
+          {
+            label: "Crear Presupuesto",
+            icon: PieChart,
+            href: "/treasurer/budgets/create",
+          },
+          {
+            label: "Ver Presupuestos",
+            icon: PieChart,
+            href: "/treasurer/budgets/view",
+          },
+          {
+            label: "Comparativas",
+            icon: BarChart3,
+            href: "/treasurer/budgets/compare",
+          },
         ],
       },
       {
         label: "Auditoría",
         items: [
-          { label: "Registro de Transacciones", icon: ClipboardCheck, href: "/treasurer/audit/transactions" },
-          { label: "Reconciliación", icon: BarChart3, href: "/treasurer/audit/reconciliation" },
-          { label: "Reportes de Auditoría", icon: BarChart3, href: "/treasurer/audit/reports" },
+          {
+            label: "Registro de Transacciones",
+            icon: ClipboardCheck,
+            href: "/treasurer/audit/transactions",
+          },
+          {
+            label: "Reconciliación",
+            icon: BarChart3,
+            href: "/treasurer/audit/reconciliation",
+          },
+          {
+            label: "Reportes de Auditoría",
+            icon: BarChart3,
+            href: "/treasurer/audit/reports",
+          },
         ],
       },
     ],
@@ -106,25 +178,61 @@ const roleStructure: RoleItem[] = [
       {
         label: "Ministerios",
         items: [
-          { label: "Lista de Ministerios", icon: Heart, href: "/pastor/ministries/list" },
-          { label: "Crear Ministerio", icon: Heart, href: "/pastor/ministries/create" },
-          { label: "Actividades", icon: BookOpen, href: "/pastor/ministries/activities" },
+          {
+            label: "Lista de Ministerios",
+            icon: Heart,
+            href: "/pastor/ministries/list",
+          },
+          {
+            label: "Crear Ministerio",
+            icon: Heart,
+            href: "/pastor/ministries/create",
+          },
+          {
+            label: "Actividades",
+            icon: BookOpen,
+            href: "/pastor/ministries/activities",
+          },
         ],
       },
       {
         label: "Predicaciones",
         items: [
-          { label: "Programar Predicación", icon: BookOpen, href: "/pastor/sermons/schedule" },
-          { label: "Historial de Mensajes", icon: BookOpen, href: "/pastor/sermons/history" },
-          { label: "Temas y Pasajes", icon: BookOpen, href: "/pastor/sermons/themes" },
+          {
+            label: "Programar Predicación",
+            icon: BookOpen,
+            href: "/pastor/sermons/schedule",
+          },
+          {
+            label: "Historial de Mensajes",
+            icon: BookOpen,
+            href: "/pastor/sermons/history",
+          },
+          {
+            label: "Temas y Pasajes",
+            icon: BookOpen,
+            href: "/pastor/sermons/themes",
+          },
         ],
       },
       {
         label: "Miembros",
         items: [
-          { label: "Directorio de Miembros", icon: Users, href: "/pastor/members/directory" },
-          { label: "Seguimiento Pastoral", icon: Heart, href: "/pastor/members/follow-up" },
-          { label: "Grupos Pequeños", icon: Users, href: "/pastor/members/groups" },
+          {
+            label: "Directorio de Miembros",
+            icon: Users,
+            href: "/pastor/members/directory",
+          },
+          {
+            label: "Seguimiento Pastoral",
+            icon: Heart,
+            href: "/pastor/members/follow-up",
+          },
+          {
+            label: "Grupos Pequeños",
+            icon: Users,
+            href: "/pastor/members/groups",
+          },
         ],
       },
     ],
@@ -140,7 +248,9 @@ export function Sidebar({
   const [expandedRoles, setExpandedRoles] = useState<Record<string, boolean>>({
     Administrador: true,
   });
-  const [expandedModules, setExpandedModules] = useState<Record<string, boolean>>({});
+  const [expandedModules, setExpandedModules] = useState<
+    Record<string, boolean>
+  >({});
 
   const isActive = (href: string) => location.pathname === href;
 
@@ -174,7 +284,12 @@ export function Sidebar({
           !isOpen && "-translate-x-full md:translate-x-0",
         )}
       >
-        <nav className={cn("flex-1 overflow-y-auto", isCollapsed ? "px-2" : "px-4 py-8")}>
+        <nav
+          className={cn(
+            "flex-1 overflow-y-auto",
+            isCollapsed ? "px-2" : "px-4 py-8",
+          )}
+        >
           {roleStructure.map((role) => (
             <div key={role.label} className="mb-6">
               <button
@@ -220,7 +335,9 @@ export function Sidebar({
                         <ChevronDown
                           className={cn(
                             "h-2.5 w-2.5 transition-transform duration-200 flex-shrink-0",
-                            expandedModules[module.label] ? "rotate-0" : "-rotate-90",
+                            expandedModules[module.label]
+                              ? "rotate-0"
+                              : "-rotate-90",
                           )}
                         />
                       </button>
@@ -241,8 +358,12 @@ export function Sidebar({
                                     : "text-slate-600 dark:text-slate-400 hover:text-[#042D62] dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:shadow-sm",
                                 )}
                               >
-                                <span className="flex-1 text-left">{item.label}</span>
-                                {active && <ChevronRight className="h-2.5 w-2.5 ml-auto flex-shrink-0" />}
+                                <span className="flex-1 text-left">
+                                  {item.label}
+                                </span>
+                                {active && (
+                                  <ChevronRight className="h-2.5 w-2.5 ml-auto flex-shrink-0" />
+                                )}
                               </Link>
                             );
                           })}

@@ -67,10 +67,13 @@ export function Header({ onToggleSidebar }: HeaderProps) {
                 className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#5E17EB] to-[#5E17EB] flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">{userInitial}</span>
+                  <span className="text-white text-xs font-bold">
+                    {userInitial}
+                  </span>
                 </div>
                 <span className="text-xs font-medium text-[#050A30] dark:text-white hidden sm:block">
-                  {user.name?.split(" ")[0]} {user.name?.split(" ")[1]?.charAt(0)}.
+                  {user.name?.split(" ")[0]}{" "}
+                  {user.name?.split(" ")[1]?.charAt(0)}.
                 </span>
               </button>
 

@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
 export interface User {
   id: number;
@@ -44,7 +50,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         console.log("[Auth] Response not OK, status:", response.status);
         const errorData = await response.json();
         console.log("[Auth] Error data:", errorData);
-        throw new Error(errorData.error || `HTTP ${response.status}: Login failed`);
+        throw new Error(
+          errorData.error || `HTTP ${response.status}: Login failed`,
+        );
       }
 
       const data = await response.json();

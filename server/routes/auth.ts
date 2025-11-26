@@ -62,7 +62,7 @@ export const login: RequestHandler = (req, res) => {
     }
 
     const user = mockUsers.find(
-      (u) => u.email === email && u.password === password
+      (u) => u.email === email && u.password === password,
     );
 
     if (!user) {
