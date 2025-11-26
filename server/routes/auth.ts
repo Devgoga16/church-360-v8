@@ -10,7 +10,7 @@ interface LoginResponse {
   id: number;
   email: string;
   name: string;
-  roles: string[];
+  roles: (string | any)[];
 }
 
 // Mock users database
