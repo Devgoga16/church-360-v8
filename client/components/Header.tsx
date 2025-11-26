@@ -24,7 +24,7 @@ export function Header({ onToggleSidebar }: HeaderProps) {
   const userInitial = userName.charAt(0).toUpperCase();
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-[#042D62] border-[#031f42] dark:bg-[#042D62] dark:border-[#031f42] shadow-md">
+    <header className="sticky top-0 z-40 w-full border-b bg-[#26629c] border-[#1a4269] dark:bg-[#26629c] dark:border-[#1a4269] shadow-md">
       <div className="flex h-14 items-center justify-between px-3 md:px-4">
         <div className="flex items-center gap-2">
           <button
@@ -35,8 +35,8 @@ export function Header({ onToggleSidebar }: HeaderProps) {
           </button>
 
           <div className="flex items-center gap-2">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-white shadow-lg shadow-white/20 font-logo">
-              <span className="text-[#042D62] font-bold text-sm">✦</span>
+            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#deb06d] shadow-lg shadow-[#deb06d]/30 font-logo">
+              <span className="text-[#26629c] font-bold text-sm">✦</span>
             </div>
             <div className="hidden sm:flex flex-col">
               <h1 className="text-sm font-logo text-white leading-tight">
@@ -67,8 +67,8 @@ export function Header({ onToggleSidebar }: HeaderProps) {
                 onClick={() => setShowUserMenu(!showUserMenu)}
                 className="flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-white/10 transition-colors"
               >
-                <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center">
-                  <span className="text-[#042D62] text-xs font-bold">
+                <div className="w-7 h-7 rounded-full bg-[#deb06d] flex items-center justify-center">
+                  <span className="text-[#26629c] text-xs font-bold">
                     {userInitial}
                   </span>
                 </div>
@@ -80,8 +80,8 @@ export function Header({ onToggleSidebar }: HeaderProps) {
 
               {showUserMenu && (
                 <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-900 rounded-lg shadow-lg border border-slate-200 dark:border-slate-800 overflow-hidden z-50">
-                  <div className="px-3 py-3 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800">
-                    <p className="text-xs font-semibold text-[#042D62] dark:text-white">
+                  <div className="px-3 py-3 border-b border-[#deb06d] dark:border-[#deb06d] bg-[#deb06d]/10 dark:bg-[#26629c]/20">
+                    <p className="text-xs font-semibold text-[#26629c] dark:text-[#deb06d]">
                       {userName}
                     </p>
                     <p className="text-xs text-slate-600 dark:text-slate-400">
@@ -89,7 +89,7 @@ export function Header({ onToggleSidebar }: HeaderProps) {
                     </p>
                   </div>
                   <div className="p-1.5">
-                    <button className="w-full flex items-center gap-2 px-2 py-1.5 text-xs rounded-md hover:bg-[#042D62]/10 dark:hover:bg-[#042D62]/20 transition-colors text-slate-700 dark:text-slate-300 hover:text-[#042D62]">
+                    <button className="w-full flex items-center gap-2 px-2 py-1.5 text-xs rounded-md hover:bg-[#26629c]/10 dark:hover:bg-[#26629c]/20 transition-colors text-slate-700 dark:text-slate-300 hover:text-[#26629c]">
                       <User className="h-3.5 w-3.5" />
                       Mi Perfil
                     </button>
